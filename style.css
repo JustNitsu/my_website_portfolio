@@ -151,7 +151,7 @@ button:hover {
 .container_name h4 {
   color: white;
 } 
-
+/*section title*/
 .section-title {
   text-align: center;
   font-size: 2.5rem;
@@ -223,7 +223,7 @@ section {
 
 /* Skills Section */
 .skills-section {
-  background-color: pink;
+  background-color: #00ABE4;
   padding: 80px 0;
 }
 
