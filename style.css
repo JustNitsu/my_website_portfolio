@@ -87,6 +87,7 @@ button:hover {
   background-color: #1d33ff;
 }
 
+
 /* Main Container */
 .container_HI {
   display: flex;
@@ -114,10 +115,8 @@ button:hover {
 
 .logo a:hover {
   color: #1d33ff;
-  ; 
 }
 
-/* Profile Picture */
 .profile_pic {
   height: 400px;
   width: 400px;
@@ -125,7 +124,6 @@ button:hover {
   margin-right: 20px;
 }
 
-/* Name & Text Section */
 .container_name {
   margin-top: 50px;
   margin-right: 30px;
@@ -151,7 +149,11 @@ button:hover {
 .container_name h4 {
   color: white;
 } 
-/*section title*/
+bottom-conatiner {
+  padding-left: 20px;
+}
+
+/* section code */
 .section-title {
   text-align: center;
   font-size: 2.5rem;
@@ -173,6 +175,16 @@ button:hover {
 
 section {
   padding: 80px 0;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.home{
+  background-image: url('background.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 /* Common Container */
@@ -184,10 +196,14 @@ section {
 }
 
 /* About Section */
+
 .about-section {
-  padding: 80px 0;
-  margin-top: 100px;
-  background-color: #B24EFF;
+  position: relative;
+  padding: 100px 0;
+  margin-top: 0;
+  background: linear-gradient(135deg, rgba(23, 170, 255, 0.8), rgba(0, 123, 255, 0.8));
+  color: #fff;
+  overflow: hidden;
 }
 
 .about-content {
@@ -196,58 +212,111 @@ section {
   align-items: center;
   gap: 40px;
   flex-wrap: wrap;
+  position: relative; /* To keep content above the overlay */
 }
 
 .about-image {
   flex: 1;
   min-width: 250px;
   max-width: 350px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .about-pic {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 10px;
 }
 
 .about-text {
   flex: 2;
+  color: #ddd;
 }
 
 .about-text p {
   margin-bottom: 20px;
   font-size: 1.1rem;
-  color: var(--dark-text);
+  line-height: 1.6; /* Improved readability */
 }
 
-/* Skills Section */
+.learn-more-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff5722; /* A vibrant color for the button */
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px;
+  font-weight: bold; /* Make the button text bold */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.learn-more-button:hover {
+  background-color: #e64a19; /* Darker shade on hover */
+  transform: translateY(-3px);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-family: 'Arial', sans-serif; /* Use a clean font */
+}
+
+/* Add a subtle animation to the text */
+.about-text p {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-text p:nth-child(1) {
+  animation-delay: 0.2s; /* Staggered animation */
+}
+
+.about-text p:nth-child(2) {
+  animation-delay: 0.4s; /* Staggered animation */
+}
+
 .skills-section {
-  background-color: #00ABE4;
+  background-color: rgb(33, 47, 248);
   padding: 80px 0;
 }
 
-.skills-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-.skill-box {
+.skill-card {
   background-color: #00c2ff;
-  padding: 25px;
+  border: none;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
 }
 
-.skill-box:hover {
+.skill-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.skill-box h3 {
+.skill-card .card-title {
   color: #fff;
   font-size: 1.6rem;
   margin-bottom: 20px;
@@ -255,7 +324,7 @@ section {
   padding-bottom: 10px;
 }
 
-.skill-box h3:after {
+.skill-card .card-title:after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -266,7 +335,7 @@ section {
   background-color: #fff;
 }
 
-.skill-box p {
+.skill-card .card-text {
   color: #fff;
   margin: 12px 0;
   font-size: 1.1rem;
@@ -275,71 +344,57 @@ section {
   justify-content: center;
 }
 
-.skill-box i {
+.skill-card i {
   margin-right: 10px;
   font-size: 1.3rem;
 }
-
 /* Projects Section */
-.projects-section {
-  background-color: 1D1D75 ;
+.projects-section, .certificates-section {
   padding: 80px 0;
 }
 
-.projects-container {
+.projects-container, .certificates-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
 
-.project-box {
+.project-card, .certificate-card {
   background-color: #fff;
-  padding: 30px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Ensures the image and content are contained within the card */
 }
 
-.project-box:hover {
+.project-card:hover, .certificate-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.project-box h3 {
+.project-card img, .certificate-card img {
+  width: 100%;
+  height: auto;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-content h3 {
   font-size: 1.6rem;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: #333;
 }
 
-.project-box p {
-  font-size: 1.1rem;
+.card-content p {
+  font-size: 1rem;
   color: #666;
-  margin-bottom: 20px;
-}
-
-.project-box img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
   margin-bottom: 15px;
 }
-
-.project-box a {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: var(--primary-color);
-  color: #fff;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.project-box a:hover {
-  background-color: var(--primary-dark);
-}
-
 /* Contact Section */
 .contact-section {
-  background-color: brown;
+  background-color: #063496;
   padding: 80px 0;
 }
 
@@ -350,7 +405,7 @@ section {
 }
 
 .contact-info {
-  background-color: var(--dark-bg);
+  background-color: rgb(3, 112, 185, 0.9);
   color: var(--light-text);
   padding: 40px;
   border-radius: 10px;
@@ -436,6 +491,13 @@ section {
   margin-top: 10px;
 }
 
+#home {
+  padding: 100px 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
 /* Footer */
 footer {
   background-color: var(--dark-bg);
@@ -476,6 +538,16 @@ footer {
   .contact-form {
     padding: 30px;
   }
+
+  .home {
+    background-image: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+  }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -500,7 +572,7 @@ footer {
   .container_HI {
     flex-direction: column;
     text-align: center;
-    padding: 20px;
+    padding: 50px;
   }
   
   .logo {
