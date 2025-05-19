@@ -635,6 +635,7 @@ footer {
     width: 90%;
   }
 }
+
 .carousel-item {
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
@@ -644,7 +645,7 @@ footer {
 }
 
 .carousel-item.active img {
-  transform: scale(1.05); /* Slightly scale the active image */
+  transform: scale(1.05); /* Slightly scalethe active image */
 }
 
 .carousel-item-next,
