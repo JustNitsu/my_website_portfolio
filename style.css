@@ -635,3 +635,35 @@ footer {
     width: 90%;
   }
 }
+.carousel-item {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.carousel-item img {
+  transition: transform 0.5s ease;
+}
+
+.carousel-item.active img {
+  transform: scale(1.05); /* Slightly scale the active image */
+}
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  display: block; /* Ensure the active and adjacent items are displayed */
+}
+
+.carousel-item-next,
+.carousel-item-prev {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  opacity: 0; /* Start with opacity 0 */
+  transition: opacity 0.5s ease; /* Smooth transition for opacity */
+}
+
+.carousel-item-next.active,
+.carousel-item-prev.active {
+  opacity: 1; /* Fade in the active item */
+}
